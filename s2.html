@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>CBSE Class 10 Science - Life Processes MCQ Quiz</title>
+
+<style>
+:root{
+    --purple:#534AB7;
+    --green:#639922;
+    --red:#d94f4f;
+    --light:#f4f5ff;
+    --dark:#222;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    padding:20px;
+    background:#eef1ff;
+    font-family:Arial, Helvetica, sans-serif;
+    color:var(--dark);
+}
+
+.container{
+    max-width:680px;
+    margin:auto;
+}
+
+h1{
+    text-align:center;
+    color:var(--purple);
+    margin-bottom:5px;
+}
+
+.subtitle{
+    text-align:center;
+    margin-bottom:20px;
+    color:#555;
+}
+
+.result-banner{
+    background:white;
+    border-left:8px solid var(--purple);
+    padding:18px;
+    border-radius:14px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    margin-bottom:20px;
+    display:none;
+}
+
+.result-banner h2{
+    margin-top:0;
+    color:var(--purple);
+}
+
+.section-title{
+    background:var(--purple);
+    color:white;
+    padding:12px 16px;
+    border-radius:12px;
+    margin:25px 0 15px;
+    font-size:18px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+.card{
+    background:white;
+    padding:18px;
+    border-radius:16px;
+    margin-bottom:18px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-2px);
+}
+
+.q-top{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    align-items:flex-start;
+}
+
+.q-number{
+    font-weight:bold;
+    color:var(--purple);
+}
+
+.badge{
+    background:var(--purple);
+    color:white;
+    padding:6px 10px;
+    border-radius:30px;
+    font-size:13px;
+    white-space:nowrap;
+}
+
+.question{
+    margin-top:12px;
+    line-height:1.5;
+    font-size:16px;
+}
+
+.options{
+    margin-top:15px;
+}
+
+.option{
+    border:2px solid #ddd;
+    padding:12px;
+    border-radius:12px;
+    margin-bottom:10px;
+    cursor:pointer;
+    transition:0.25s;
+    background:#fafafa;
+}
+
+.option:hover{
+    border-color:var(--purple);
+    background:#f1efff;
+}
+
+.option.selected{
+    border-color:var(--purple);
+    background:#ece9ff;
+}
+
+.option.correct{
+    background:#e8f6d8;
+    border-color:var(--green);
+    color:#2f5f00;
+    font-weight:bold;
+}
+
+.option.wrong{
+    background:#ffe0e0;
+    border-color:var(--red);
+    color:#8a1d1d;
+    font-weight:bold;
+}
+
+.explanation{
+    margin-top:12px;
+    padding:12px;
+    background:#f7f7f7;
+    border-left:5px solid var(--purple);
+    border-radius:10px;
+    display:none;
+    line-height:1.5;
+}
+
+img.diagram{
+    width:100%;
+    border-radius:12px;
+    margin-top:15px;
+}
+
+.buttons{
+    display:flex;
+    gap:12px;
+    margin:25px 0 40px;
+}
+
+button{
+    flex:1;
+    border:none;
+    padding:16px;
+    border-radius:14px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+#submitBtn{
+    background:var(--purple);
+    color:white;
+}
+
+#submitBtn:hover{
+    opacity:0.92;
+}
+
+#restartBtn{
+    background:#fff;
+    border:2px solid var(--purple);
+    color:var(--purple);
+}
+
+#restartBtn:hover{
+    background:#f0edff;
+}
+
+.footer{
+    text-align:center;
+    color:#666;
+    padding-bottom:20px;
+}
+
+@media(max-width:600px){
+    body{
+        padding:12px;
+    }
+
+    .question{
+        font-size:15px;
+    }
+
+    button{
+        font-size:15px;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<h1>Life Processes MCQ Quiz</h1>
+<div class="subtitle">CBSE Class 10 Science • 25 Questions • 50 Marks</div>
+
+<div class="result-banner" id="resultBanner">
+    <h2>Quiz Results</h2>
+    <p id="scoreText"></p>
+</div>
+
+<div class="section-title">Nutrition</div>
+
+<div class="card" data-answer="b">
+<div class="q-top">
+<div class="q-number">Q1</div>
+<div class="badge">2 Marks</div>
+</div>
+<div class="question">The mode of nutrition in Amoeba is:</div>
+<div class="options">
+<div class="option" data-option="a">A. Saprophytic</div>
+<div class="option" data-option="b">B. Holozoic</div>
+<div class="option" data-option="c">C. Autotrophic</div>
+<div class="option" data-option="d">D. Parasitic</div>
+</div>
+<div class="explanation">Amoeba follows holozoic nutrition where it ingests food using pseudopodia.</div>
+</div>
+
+<div class="card" data-answer="d">
+<div class="q-top">
+<div class="q-number">Q2</div>
+<div class="badge">2 Marks</div>
+</div>
+<div class="question">Which enzyme is present in saliva?</div>
+<div class="options">
+<div class="option" data-option="a">A. Pepsin</div>
+<div class="option" data-option="b">B. Trypsin</div>
+<div class="option" data-option="c">C. Lipase</div>
+<div class="option" data-option="d">D. Salivary amylase</div>
+</div>
+<div class="explanation">Salivary amylase breaks starch into simpler sugars in the mouth.</div>
+</div>
+
+<div class="card" data-answer="c">
+<div class="q-top">
+<div class="q-number">Q3</div>
+<div class="badge">2 Marks</div>
+</div>
+<div class="question">The inner lining of the small intestine has finger-like projections called:</div>
+<div class="options">
+<div class="option" data-option="a">A. Nephrons</div>
+<div class="option" data-option="b">B. Alveoli</div>
+<div class="option" data-option="c">C. Villi</div>
+<div class="option" data-option="d">D. Stomata</div>
+</div>
+<div class="explanation">Villi increase the surface area for absorption of digested food.</div>
+</div>
+
+<div class="card" data-answer="a">
+<div class="q-top">
+<div class="q-number">Q4</div>
+<div class="badge">2 Marks</div>
+</div>
+<div class="question">Which of the following is essential for photosynthesis?</div>
+<div class="options">
+<div class="option" data-option="a">A. Chlorophyll</div>
+<div class="option" data-option="b">B. Oxygen</div>
+<div class="option" data-option="c">C. Protein</div>
+<div class="option" data-option="d">D. Nitrogen</div>
+</div>
+
+<img class="diagram" src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Leaf_TEM_cross_section.jpg">
+
+<div class="explanation">Chlorophyll traps sunlight needed for photosynthesis.</div>
+</div>
+
+<div class="card" data-answer="b">
+<div class="q-top">
+<div class="q-number">Q5</div>
+<div class="badge">2 Marks</div>
+</div>
+<div class="question">Assertion (A): Bile juice helps in digestion of fats.<br>
+Reason (R): Bile juice contains enzymes that digest fats.</div>
+
+<div class="options">
+<div class="option" data-option="a">A. Both A and R are true and R is correct explanation</div>
+<div class="option" data-option="b">B. A is true but R is false</div>
+<div class="option" data-option="c">C. A is false but R is true</div>
+<div class="option" data-option="d">D. Both A and R are false</div>
+</div>
+
+<div class="explanation">Bile emulsifies fats but does not contain digestive enzymes.</div>
+</div>
+
+<div class="section-title">Respiration</div>
+
+<div class="card" data-answer="c">
+<div class="q-top">
+<div class="q-number">Q6</div>
+<div class="badge">2 Marks</div>
+</div>
+<div class="question">Which gas is released during respiration?</div>
+<div class="options">
+<div class="option" data-option="a">A. Nitrogen</div>
+<div class="option" data-option="b">B. Oxygen</div>
+<div class="option" data-option="c">C. Carbon dioxide</div>
+<div class="option" data-option="d">D. Hydrogen</div>
+</div>
+<div class="explanation">Carbon dioxide is produced as a waste product during respiration.</div>
+</div>
+
+<div class="card" data-answer="d">
+<div class="q-top">
+<div class="q-number">Q7</div>
+<div class="badge">2 Marks</div>
+</div>
+<div class="question">The tiny air sacs in lungs are called:</div>
+<div class="options">
+<div class="option" data-option="a">A. Nephrons</div>
+<div class="option" data-option="b">B. Bronchi</div>
+<div class="option" data-option="c">C. Trachea</div>
+<div class="option" data-option="d">D. Alveoli</div>
+</div>
+
+<img class="diagram" src="https://upload.wikimedia.org/wikipedia/commons/0/07/Respiratory_system_complete_en.svg">
+
+<div class="explanation">Alveoli provide a large surface area for gaseous exchange.</div>
+</div>
+
+<div class="card" data-answer="a">
+<div class="q-top">
+<div class="q-number">Q8</div>
+<div class="badge">2 Marks</div>
+</div>
+<div class="question">During vigorous exercise, muscle cells may undergo:</div>
+<div class="options">
+<div class="option" data-option="a">A. Anaerobic respiration</div>
+<div class="option" data-option="b">B. Photosynthesis</div>
+<div class="option" data-option="c">C. Digestion</div>
+<div class="option" data-option="d">D. Excretion</div>
+</div>
+<div class="explanation">Lack of oxygen during vigorous exercise leads to anaerobic respiration in muscles.</div>
+</div>
+
+<div class="card" data-answer="c">
+<div class="q-top">
+<div class="q-number">Q9</div>
+<div class="badge">2 Marks</div>
+</div>
+<div class="question">The breakdown of glucose in the presence of oxygen is called:</div>
+<div class="options">
+<div class="option" data-option="a">A. Fermentation</div>
+<div class="option" data-option="b">B. Digestion</div>
+<div class="option" data-option="c">C. Aerobic respiration</div>
+<div class="option" data-option="d">D. Diffusion</div>
+</div>
+<div class="explanation">Aerobic respiration completely oxidizes glucose to release energy.</div>
+</div>
+
+<div class="card" data-answer="b">
+<div class="q-top">
+<div class="q-number">Q10</div>
+<div class="badge">2 Marks</div>
+</div>
+<div class="question">Assertion (A): Smoking damages lungs.<br>
+Reason (R): Tar affects alveoli and decreases respiratory efficiency.</div>
+
+<div class="options">
+<div class="option" data-option="a">A. A false, R true</div>
+<div class="option" data-option="b">B. Both true and R explains A</div>
+<div class="option" data-option="c">C. Both true but R not explanation</div>
+<div class="option" data-option="d">D. Both false</div>
+</div>
+
+<div class="explanation">Smoking damages alveoli, reducing oxygen exchange efficiency.</div>
+</div>
+
+<div class="section-title">Transportation in Humans & Plants</div>
+
+<div class="card" data-answer="a">
+<div class="q-top">
+<div class="q-number">Q11</div>
+<div class="badge">2 Marks</div>
+</div>
+<div class="question">Which blood vessel carries oxygenated blood from lungs to heart?</div>
+<div class="options">
+<div class="option" data-option="a">A. Pulmonary vein</div>
+<div class="option" data-option="b">B. Pulmonary artery</div>
+<div class="option" data-option="c">C. Vena cava</div>
+<div class="option" data-option="d">D. Aorta</div>
+</div>
+<div class="explanation">Pulmonary vein carries oxygen-rich blood to the left atrium.</div>
+</div>
+
+<div class="card" data-answer="d">
+<div class="q-top">
+<div class="q-number">Q12</div>
+<div class="badge">2 Marks</div>
+</div>
+<div class="question">The pumping chambers of the heart are:</div>
+<div class="options">
+<div class="option" data-option="a">A. Atria</div>
+<div class="option" data-option="b">B. Valves</div>
+<div class="option" data-option="c">C. Auricles</div>
+<div class="option" data-option="d">D. Ventricles</div>
+</div>
+
+<img class="diagram" src="https://upload.wikimedia.org/wikipedia/commons/9/91/Diagram_of_the_human_heart_%28cropped%29.svg">
+
+<div class="explanation">Ventricles pump blood to lungs and the rest of the body.</div>
+</div>
+
+<div class="card" data-answer="b">
+<div class="q-top">
+<div class="q-number">Q13</div>
+<div class="badge">2 Marks</div>
+</div>
+<div class="question">Blood pressure is measured using:</div>
+<div class="options">
+<div class="option" data-option="a">A. Thermometer</div>
+<div class="option" data-option="b">B. Sphygmomanometer</div>
+<div class="option" data-option="c">C. Lactometer</div>
+<div class="option" data-option="d">D. Hygrometer</div>
+</div>
+<div class="explanation">A sphygmomanometer is used to measure blood pressure.</div>
+</div>
+
+<div class="card" data-answer="c">
+<div class="q-top">
+<div class="q-number">Q14</div>
+<div class="badge">2 Marks</div>
+</div>
+<div class="question">Xylem transports:</div>
+<div class="options">
+<div class="option" data-option="a">A. Food</div>
+<div class="option" data-option="b">B. Hormones</div>
+<div class="option" data-option="c">C. Water and minerals</div>
+<div class="option" data-option="d">D. Oxygen</div>
+</div>
+<div class="explanation">Xylem carries water and dissolved minerals from roots to leaves.</div>
+</div>
+
+<div class="card" data-answer="a">
+<div class="q-top">
+<div class="q-number">Q15</div>
+<div class="badge">2 Marks</div>
+</div>
+<div class="question">Which tissue transports food in plants?</div>
+<div class="options">
+<div class="option" data-option="a">A. Phloem</div>
+<div class="option" data-option="b">B. Xylem</div>
+<div class="option" data-option="c">C. Cortex</div>
+<div class="option" data-option="d">D. Epidermis</div>
+</div>
+<div class="explanation">Phloem transports food made in leaves to different plant parts.</div>
+</div>
+
+<div class="card" data-answer="d">
+<div class="q-top">
+<div class="q-number">Q16</div>
+<div class="badge">2 Marks</div>
+</div>
+<div class="question">Double circulation in humans helps in:</div>
+<div class="options">
+<div class="option" data-option="a">A. Mixing oxygenated and deoxygenated blood</div>
+<div class="option" data-option="b">B. Decreasing efficiency</div>
+<div class="option" data-option="c">C. Slowing transport</div>
+<div class="option" data-option="d">D. Efficient oxygen supply</div>
+</div>
+<div class="explanation">Double circulation keeps oxygenated and deoxygenated blood separate.</div>
+</div>
+
+<div class="section-title">Excretion</div>
+
+<div class="card" data-answer="b">
+<div class="q-top">
+<div class="q-number">Q17</div>
+<div class="badge">2 Marks</div>
+</div>
+<div class="question">The functional unit of kidney is:</div>
+<div class="options">
+<div class="option" data-option="a">A. Alveolus</div>
+<div class="option" data-option="b">B. Nephron</div>
+<div class="option" data-option="c">C. Villus</div>
+<div class="option" data-option="d">D. Atrium</div>
+</div>
+<div class="explanation">Nephrons filter blood and form urine.</div>
+</div>
+
+<div class="card" data-answer="c">
+<div class="q-top">
+<div class="q-number">Q18</div>
+<div class="badge">2 Marks</div>
+</div>
+<div class="question">Human urine mainly contains:</div>
+<div class="options">
+<div class="option" data-option="a">A. Glucose</div>
+<div class="option" data-option="b">B. Starch</div>
+<div class="option" data-option="c">C. Urea</div>
+<div class="option" data-option="d">D. Oxygen</div>
+</div>
+<div class="explanation">Urea is the major nitrogenous waste excreted by humans.</div>
+</div>
+
+<div class="card" data-answer="d">
+<div class="q-top">
+<div class="q-number">Q19</div>
+<div class="badge">2 Marks</div>
+</div>
+<div class="question">Which part of nephron filters blood?</div>
+<div class="options">
+<div class="option" data-option="a">A. Ureter</div>
+<div class="option" data-option="b">B. Bladder</div>
+<div class="option" data-option="c">C. Collecting duct</div>
+<div class="option" data-option="d">D. Glomerulus</div>
+</div>
+
+<img class="diagram" src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Gray1128.png">
+
+<div class="explanation">Glomerulus filters blood under pressure.</div>
+</div>
+
+<div class="card" data-answer="a">
+<div class="q-top">
+<div class="q-number">Q20</div>
+<div class="badge">2 Marks</div>
+</div>
+<div class="question">Plants remove excess water through:</div>
+<div class="options">
+<div class="option" data-option="a">A. Transpiration</div>
+<div class="option" data-option="b">B. Respiration</div>
+<div class="option" data-option="c">C. Digestion</div>
+<div class="option" data-option="d">D. Germination</div>
+</div>
+<div class="explanation">Transpiration is loss of water vapor through stomata.</div>
+</div>
+
+<div class="section-title">Mixed & Application-Based Questions</div>
+
+<div class="card" data-answer="b">
+<div class="q-top">
+<div class="q-number">Q21</div>
+<div class="badge">2 Marks</div>
+</div>
+<div class="question">A patient with damaged alveoli will face difficulty in:</div>
+<div class="options">
+<div class="option" data-option="a">A. Digestion</div>
+<div class="option" data-option="b">B. Gaseous exchange</div>
+<div class="option" data-option="c">C. Blood clotting</div>
+<div class="option" data-option="d">D. Filtration</div>
+</div>
+<div class="explanation">Alveoli are the site of gaseous exchange in lungs.</div>
+</div>
+
+<div class="card" data-answer="c">
+<div class="q-top">
+<div class="q-number">Q22</div>
+<div class="badge">2 Marks</div>
+</div>
+<div class="question">If the valve between left atrium and left ventricle fails, then:</div>
+<div class="options">
+<div class="option" data-option="a">A. Blood pressure becomes zero</div>
+<div class="option" data-option="b">B. Respiration stops immediately</div>
+<div class="option" data-option="c">C. Backflow of blood may occur</div>
+<div class="option" data-option="d">D. Kidney stops functioning</div>
+</div>
+<div class="explanation">Heart valves prevent backflow of blood.</div>
+</div>
+
+<div class="card" data-answer="d">
+<div class="q-top">
+<div class="q-number">Q23</div>
+<div class="badge">2 Marks</div>
+</div>
+<div class="question">A student tested food for starch using iodine solution. Blue-black color appeared. This indicates presence of:</div>
+<div class="options">
+<div class="option" data-option="a">A. Protein</div>
+<div class="option" data-option="b">B. Fat</div>
+<div class="option" data-option="c">C. Glucose</div>
+<div class="option" data-option="d">D. Starch</div>
+</div>
+<div class="explanation">Iodine turns blue-black in presence of starch.</div>
+</div>
+
+<div class="card" data-answer="a">
+<div class="q-top">
+<div class="q-number">Q24</div>
+<div class="badge">2 Marks</div>
+</div>
+<div class="question">Assertion (A): Kidneys help maintain water balance.<br>
+Reason (R): Kidneys selectively reabsorb useful substances.</div>
+
+<div class="options">
+<div class="option" data-option="a">A. Both A and R are true and R explains A</div>
+<div class="option" data-option="b">B. Both A and R true but R not explanation</div>
+<div class="option" data-option="c">C. A true, R false</div>
+<div class="option" data-option="d">D. A false, R true</div>
+</div>
+
+<div class="explanation">Selective reabsorption helps maintain proper water and salt balance.</div>
+</div>
+
+<div class="card" data-answer="b">
+<div class="q-top">
+<div class="q-number">Q25</div>
+<div class="badge">2 Marks</div>
+</div>
+<div class="question">A person consumes more oily food but less fiber. Which digestive issue is most likely?</div>
+<div class="options">
+<div class="option" data-option="a">A. Faster digestion</div>
+<div class="option" data-option="b">B. Constipation</div>
+<div class="option" data-option="c">C. Increased oxygen supply</div>
+<div class="option" data-option="d">D. Better absorption</div>
+</div>
+<div class="explanation">Lack of dietary fiber commonly leads to constipation.</div>
+</div>
+
+<div class="buttons">
+<button id="submitBtn">Submit & See Results</button>
+<button id="restartBtn">Restart Quiz</button>
+</div>
+
+<div class="footer">
+CBSE Class 10 Science • Life Processes Interactive Quiz
+</div>
+
+</div>
+
+<script>
+const cards = document.querySelectorAll('.card');
+
+cards.forEach(card=>{
+    const options = card.querySelectorAll('.option');
+
+    options.forEach(option=>{
+        option.addEventListener('click', ()=>{
+
+            if(document.body.classList.contains('submitted')) return;
+
+            options.forEach(o=>o.classList.remove('selected'));
+            option.classList.add('selected');
+        });
+    });
+});
+
+document.getElementById('submitBtn').addEventListener('click', ()=>{
+
+    document.body.classList.add('submitted');
+
+    let correct=0;
+    let wrong=0;
+    let skipped=0;
+
+    cards.forEach(card=>{
+
+        const answer = card.dataset.answer;
+        const selected = card.querySelector('.option.selected');
+        const options = card.querySelectorAll('.option');
+        const explanation = card.querySelector('.explanation');
+
+        explanation.style.display='block';
+
+        if(!selected){
+            skipped++;
+
+            options.forEach(opt=>{
+                if(opt.dataset.option===answer){
+                    opt.classList.add('correct');
+                    opt.innerHTML += ' ✓';
+                }
+            });
+
+        }else{
+
+            if(selected.dataset.option===answer){
+                correct++;
+                selected.classList.add('correct');
+                selected.innerHTML += ' ✓';
+            }else{
+                wrong++;
+                selected.classList.add('wrong');
+
+                options.forEach(opt=>{
+                    if(opt.dataset.option===answer){
+                        opt.classList.add('correct');
+                        opt.innerHTML += ' ✓';
+                    }
+                });
+            }
+        }
+    });
+
+    const marks = correct * 2;
+    const percent = ((marks/50)*100).toFixed(1);
+
+    const banner = document.getElementById('resultBanner');
+    banner.style.display='block';
+
+    document.getElementById('scoreText').innerHTML = `
+    <strong>Percentage:</strong> ${percent}%<br><br>
+    <strong>Marks:</strong> ${marks}/50<br><br>
+    <strong>Correct:</strong> ${correct}<br>
+    <strong>Wrong:</strong> ${wrong}<br>
+    <strong>Skipped:</strong> ${skipped}
+    `;
+
+    window.scrollTo({
+        top:0,
+        behavior:'smooth'
+    });
+
+});
+
+document.getElementById('restartBtn').addEventListener('click', ()=>{
+
+    document.body.classList.remove('submitted');
+
+    document.querySelectorAll('.option').forEach(opt=>{
+        opt.classList.remove('selected','correct','wrong');
+
+        opt.innerHTML = opt.innerHTML.replace(' ✓','');
+    });
+
+    document.querySelectorAll('.explanation').forEach(exp=>{
+        exp.style.display='none';
+    });
+
+    document.getElementById('resultBanner').style.display='none';
+
+});
+</script>
+
+</body>
+</html>
