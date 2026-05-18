@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>CBSE Class 10 Science - Light MCQ Quiz</title>
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+background:#f3f4fb;
+color:#222;
+padding:20px;
+line-height:1.5;
+}
+
+.container{
+max-width:680px;
+margin:auto;
+}
+
+h1{
+text-align:center;
+color:#534AB7;
+margin-bottom:10px;
+}
+
+.subtitle{
+text-align:center;
+margin-bottom:25px;
+color:#555;
+}
+
+.result-banner{
+display:none;
+background:#fff;
+padding:18px;
+border-radius:18px;
+box-shadow:0 4px 15px rgba(0,0,0,0.08);
+margin-bottom:20px;
+border-left:8px solid #534AB7;
+animation:fadeIn 0.4s ease;
+}
+
+.result-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+margin-top:12px;
+}
+
+.result-item{
+background:#f4f4ff;
+padding:10px;
+border-radius:12px;
+text-align:center;
+font-weight:bold;
+}
+
+.section-title{
+background:#534AB7;
+color:#fff;
+padding:12px 16px;
+border-radius:14px;
+margin:28px 0 16px;
+font-size:18px;
+box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+.card{
+background:#fff;
+padding:18px;
+border-radius:18px;
+margin-bottom:18px;
+box-shadow:0 4px 14px rgba(0,0,0,0.08);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-2px);
+}
+
+.question-top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:12px;
+gap:10px;
+}
+
+.q-number{
+font-weight:bold;
+color:#534AB7;
+}
+
+.badge{
+background:#534AB7;
+color:#fff;
+padding:5px 10px;
+border-radius:999px;
+font-size:13px;
+font-weight:bold;
+}
+
+.question{
+font-size:16px;
+margin-bottom:12px;
+}
+
+.options{
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+.option{
+padding:12px;
+border:2px solid #ddd;
+border-radius:12px;
+cursor:pointer;
+transition:0.25s;
+background:#fafafa;
+}
+
+.option:hover{
+border-color:#534AB7;
+background:#f5f3ff;
+}
+
+.option.selected{
+border-color:#534AB7;
+background:#ece9ff;
+}
+
+.option.correct{
+background:#dff0c8;
+border-color:#639922;
+color:#2d5c00;
+font-weight:bold;
+}
+
+.option.wrong{
+background:#ffdede;
+border-color:#d94f4f;
+color:#7d1111;
+font-weight:bold;
+}
+
+.tick{
+float:right;
+font-weight:bold;
+}
+
+.explanation{
+display:none;
+margin-top:14px;
+padding:12px;
+background:#f8f8ff;
+border-left:5px solid #534AB7;
+border-radius:10px;
+font-size:14px;
+}
+
+img.diagram{
+width:100%;
+border-radius:12px;
+margin:10px 0;
+}
+
+.buttons{
+display:flex;
+gap:12px;
+margin:30px 0;
+}
+
+button{
+flex:1;
+padding:14px;
+border:none;
+border-radius:14px;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+}
+
+.submit-btn{
+background:#534AB7;
+color:#fff;
+}
+
+.submit-btn:hover{
+background:#4339a0;
+}
+
+.restart-btn{
+background:#fff;
+border:2px solid #534AB7;
+color:#534AB7;
+}
+
+.restart-btn:hover{
+background:#f1efff;
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(-10px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@media(max-width:600px){
+.question-top{
+flex-direction:column;
+align-items:flex-start;
+}
+
+.result-grid{
+grid-template-columns:1fr;
+}
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<h1>CBSE Class 10 Science Quiz</h1>
+<p class="subtitle">Chapter: Light – Reflection & Refraction</p>
+
+<div class="result-banner" id="resultBanner">
+<h2>Your Result</h2>
+<div class="result-grid">
+<div class="result-item" id="percentage"></div>
+<div class="result-item" id="marks"></div>
+<div class="result-item" id="correct"></div>
+<div class="result-item" id="wrong"></div>
+<div class="result-item" id="skipped"></div>
+</div>
+</div>
+
+<div id="quiz"></div>
+
+<div class="buttons">
+<button class="submit-btn" onclick="submitQuiz()">Submit & See Results</button>
+<button class="restart-btn" onclick="restartQuiz()">Restart Quiz</button>
+</div>
+
+</div>
+
+<script>
+
+const quizData = [
+
+{
+section:"Basic Concepts",
+q:"The angle between the incident ray and the normal is called:",
+options:["Angle of deviation","Angle of reflection","Angle of incidence","Angle of refraction"],
+answer:2,
+explanation:"The angle formed between the incident ray and the normal is called the angle of incidence."
+},
+
+{
+section:"Basic Concepts",
+q:"Which mirror is used as a rear-view mirror in vehicles?",
+options:["Plane mirror","Concave mirror","Convex mirror","Parabolic mirror"],
+answer:2,
+explanation:"Convex mirrors provide a wider field of view and form erect diminished images."
+},
+
+{
+section:"Basic Concepts",
+q:"The image formed by a plane mirror is:",
+options:["Real and inverted","Virtual and erect","Real and erect","Virtual and inverted"],
+answer:1,
+explanation:"A plane mirror always forms a virtual and erect image."
+},
+
+{
+section:"Reflection",
+q:"The focal length of a spherical mirror is 20 cm. Radius of curvature is:",
+options:["10 cm","20 cm","40 cm","80 cm"],
+answer:2,
+explanation:"Radius of curvature = 2 × focal length = 40 cm."
+},
+
+{
+section:"Reflection",
+q:"According to the laws of reflection:",
+options:["∠i > ∠r","∠i < ∠r","∠i = ∠r","∠i + ∠r = 180°"],
+answer:2,
+explanation:"The angle of incidence is equal to the angle of reflection."
+},
+
+{
+section:"Reflection",
+q:"A concave mirror produces a real, inverted image when the object is placed:",
+options:["Between pole and focus","At focus","Beyond focus","Between focus and centre"],
+answer:2,
+explanation:"A concave mirror forms real inverted images when object is beyond focus."
+},
+
+{
+section:"Reflection",
+q:"The mirror formula is:",
+options:["1/f = 1/v - 1/u","1/f = 1/v + 1/u","f = uv","v = u + f"],
+answer:1,
+explanation:"Mirror formula is 1/f = 1/v + 1/u."
+},
+
+{
+section:"Reflection",
+q:"An object is placed 30 cm from a concave mirror of focal length 15 cm. The image formed is:",
+options:["At infinity","Virtual","At centre of curvature","Behind the mirror"],
+answer:0,
+explanation:"Object at centre of curvature (2f) forms image at centre. Here u = 30 cm and f =15 cm."
+},
+
+{
+section:"Ray Diagram",
+q:"Identify the mirror shown in the diagram.",
+image:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Concave_mirror.svg/512px-Concave_mirror.svg.png",
+options:["Plane mirror","Convex mirror","Concave mirror","Cylindrical mirror"],
+answer:2,
+explanation:"The inward curved reflecting surface represents a concave mirror."
+},
+
+{
+section:"Ray Diagram",
+q:"The ray passing through the principal focus after reflection is shown for:",
+image:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Ray_diagram_showing_reflection_in_concave_mirror.svg/512px-Ray_diagram_showing_reflection_in_concave_mirror.svg.png",
+options:["Convex mirror","Concave mirror","Plane mirror","Prism"],
+answer:1,
+explanation:"Parallel rays converge at focus in a concave mirror."
+},
+
+{
+section:"Refraction",
+q:"Refraction occurs because light changes:",
+options:["Colour","Direction","Speed","Frequency"],
+answer:2,
+explanation:"Refraction occurs due to change in speed of light in different media."
+},
+
+{
+section:"Refraction",
+q:"The refractive index of a medium is:",
+options:["Speed in medium / speed in vacuum","Speed in vacuum / speed in medium","Product of both speeds","Difference of speeds"],
+answer:1,
+explanation:"Refractive index n = c/v."
+},
+
+{
+section:"Refraction",
+q:"A ray passing from air to glass bends:",
+options:["Away from normal","Towards normal","Parallel to surface","Randomly"],
+answer:1,
+explanation:"Light bends towards normal when entering a denser medium."
+},
+
+{
+section:"Refraction",
+q:"Power of a lens is measured in:",
+options:["Joule","Dioptre","Newton","Pascal"],
+answer:1,
+explanation:"Lens power is measured in dioptres."
+},
+
+{
+section:"Refraction",
+q:"A convex lens has focal length 50 cm. Its power is:",
+options:["+2 D","-2 D","+0.5 D","-0.5 D"],
+answer:0,
+explanation:"Power = 1/f = 1/0.5 = +2 D."
+},
+
+{
+section:"Refraction",
+q:"The lens formula is:",
+options:["1/f = 1/v + 1/u","1/f = 1/v - 1/u","f = uv","u+v=f"],
+answer:0,
+explanation:"Lens formula is 1/f = 1/v - 1/u using sign convention."
+},
+
+{
+section:"Refraction",
+q:"Which lens is used to correct myopia?",
+options:["Convex lens","Concave lens","Bifocal lens","Cylindrical lens"],
+answer:1,
+explanation:"Myopia is corrected using concave lenses."
+},
+
+{
+section:"Refraction",
+q:"An object is placed at twice the focal length of a convex lens. The image formed will be:",
+options:["At focus","At infinity","At twice focal length","Virtual"],
+answer:2,
+explanation:"Object at 2F forms image at 2F."
+},
+
+{
+section:"Numericals",
+q:"An object is placed at 10 cm in front of a convex mirror of focal length 20 cm. The image formed is:",
+options:["Real and enlarged","Virtual and diminished","Real and diminished","Virtual and enlarged"],
+answer:1,
+explanation:"Convex mirrors always form virtual diminished images."
+},
+
+{
+section:"Numericals",
+q:"A lens has power -4 D. The lens is:",
+options:["Convex","Concave","Plane","Cylindrical"],
+answer:1,
+explanation:"Negative power indicates a concave lens."
+},
+
+{
+section:"Human Eye",
+q:"The least distance of distinct vision for a normal human eye is:",
+options:["10 cm","15 cm","25 cm","50 cm"],
+answer:2,
+explanation:"The near point for a normal eye is 25 cm."
+},
+
+{
+section:"Human Eye",
+q:"Cataract affects which part of the eye?",
+options:["Retina","Cornea","Lens","Optic nerve"],
+answer:2,
+explanation:"Cataract causes clouding of the eye lens."
+},
+
+{
+section:"Image Based",
+q:"Which defect of vision is represented in the image?",
+image:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Myopia.svg/512px-Myopia.svg.png",
+options:["Hypermetropia","Myopia","Presbyopia","Astigmatism"],
+answer:1,
+explanation:"In myopia, distant objects form image before retina."
+},
+
+{
+section:"Assertion–Reason",
+q:"Assertion: A convex lens can form a real image. Reason: Convex lens converges light rays.",
+options:[
+"Both A and R are true and R is correct explanation",
+"Both A and R are true but R is not correct explanation",
+"A is true but R is false",
+"A is false but R is true"
+],
+answer:0,
+explanation:"Convex lenses converge rays and therefore can form real images."
+},
+
+{
+section:"Application Based",
+q:"Why are dentists' mirrors concave?",
+options:[
+"To get wider field",
+"To produce diminished image",
+"To obtain magnified upright image",
+"To reflect less light"
+],
+answer:2,
+explanation:"Concave mirrors form enlarged upright images when object is within focus."
+}
+
+];
+
+const quizContainer = document.getElementById("quiz");
+
+let currentSection = "";
+
+quizData.forEach((item,index)=>{
+
+if(item.section !== currentSection){
+currentSection = item.section;
+
+const section = document.createElement("div");
+section.className = "section-title";
+section.innerText = currentSection;
+quizContainer.appendChild(section);
+}
+
+const card = document.createElement("div");
+card.className = "card";
+
+let imageHTML = item.image ? `<img class="diagram" src="${item.image}" alt="diagram">` : "";
+
+card.innerHTML = `
+<div class="question-top">
+<div class="q-number">Q${index+1}</div>
+<div class="badge">2 Marks</div>
+</div>
+
+<div class="question">${item.q}</div>
+
+${imageHTML}
+
+<div class="options">
+${item.options.map((opt,i)=>`
+<div class="option" data-q="${index}" data-option="${i}">
+${String.fromCharCode(65+i)}. ${opt}
+</div>
+`).join("")}
+</div>
+
+<div class="explanation" id="exp-${index}">
+<strong>Correct Answer:</strong> ${String.fromCharCode(65+item.answer)}. ${item.options[item.answer]}<br><br>
+${item.explanation}
+</div>
+`;
+
+quizContainer.appendChild(card);
+});
+
+document.querySelectorAll(".option").forEach(option=>{
+option.addEventListener("click",function(){
+
+const q = this.dataset.q;
+
+document.querySelectorAll(`.option[data-q="${q}"]`).forEach(op=>{
+op.classList.remove("selected");
+});
+
+this.classList.add("selected");
+});
+});
+
+function submitQuiz(){
+
+let correct=0;
+let wrong=0;
+let skipped=0;
+
+quizData.forEach((item,index)=>{
+
+const options = document.querySelectorAll(`.option[data-q="${index}"]`);
+let selected = null;
+
+options.forEach(op=>{
+if(op.classList.contains("selected")){
+selected = parseInt(op.dataset.option);
+}
+});
+
+if(selected===null){
+skipped++;
+}
+else if(selected===item.answer){
+correct++;
+}
+else{
+wrong++;
+}
+
+options.forEach(op=>{
+
+const optIndex = parseInt(op.dataset.option);
+
+op.style.pointerEvents = "none";
+
+if(optIndex===item.answer){
+op.classList.add("correct");
+op.innerHTML += ` <span class="tick">✓</span>`;
+}
+
+if(selected!==null && optIndex===selected && selected!==item.answer){
+op.classList.add("wrong");
+op.innerHTML += ` <span class="tick">✗</span>`;
+}
+
+});
+
+document.getElementById(`exp-${index}`).style.display = "block";
+
+});
+
+const totalMarks = correct * 2;
+const percentage = ((totalMarks/50)*100).toFixed(1);
+
+document.getElementById("resultBanner").style.display="block";
+
+document.getElementById("percentage").innerHTML=`Percentage<br>${percentage}%`;
+document.getElementById("marks").innerHTML=`Marks<br>${totalMarks}/50`;
+document.getElementById("correct").innerHTML=`Correct<br>${correct}`;
+document.getElementById("wrong").innerHTML=`Wrong<br>${wrong}`;
+document.getElementById("skipped").innerHTML=`Skipped<br>${skipped}`;
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+function restartQuiz(){
+
+document.querySelectorAll(".option").forEach(op=>{
+op.classList.remove("selected","correct","wrong");
+op.style.pointerEvents="auto";
+
+op.innerHTML = op.innerHTML
+.replace('<span class="tick">✓</span>', '')
+.replace('<span class="tick">✗</span>', '');
+});
+
+document.querySelectorAll(".explanation").forEach(exp=>{
+exp.style.display="none";
+});
+
+document.getElementById("resultBanner").style.display="none";
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+}
+
+</script>
+
+</body>
+</html>
