@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 10 Chemistry - Chapter 3 Quiz</title>
+    <style>
+        :root {
+            --primary-color: #ff9900;
+            --secondary-color: #e65c00;
+            --correct-bg: #e8f5e9;
+            --correct-text: #1b5e20;
+            --correct-border: #a5d6a7;
+            --wrong-bg: #ffebee;
+            --wrong-text: #b71c1c;
+            --wrong-border: #ef9a9a;
+            --warn-bg: #fffde7;
+            --warn-text: #f57f17;
+            --warn-border: #fff59d;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 30px 15px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        h1 {
+            text-align: center;
+            background: linear-gradient(to right, var(--secondary-color), #f12711);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 2.5rem;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .instructions {
+            background: linear-gradient(to right, #eef2f3, #e4e8f0);
+            border-left: 5px solid var(--secondary-color);
+            padding: 15px;
+            margin-bottom: 35px;
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+
+        .question-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .question-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+        }
+
+        .question-text {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #1a202c;
+        }
+
+        .options {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 5px;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            background: #f8fafc;
+            padding: 10px 20px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.2s;
+            user-select: none;
+            min-width: 100px;
+            justify-content: center;
+        }
+
+        .option-label:hover {
+            background: #f1f5f9;
+            border-color: #cbd5e1;
+        }
+
+        .option-label input {
+            margin-right: 10px;
+            transform: scale(1.2);
+            accent-color: var(--secondary-color);
+        }
+
+        .feedback {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+            font-size: 0.95rem;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .correct-feedback {
+            background-color: var(--correct-bg);
+            color: var(--correct-text);
+            border: 1px solid var(--correct-border);
+        }
+
+        .wrong-feedback {
+            background-color: var(--wrong-bg);
+            color: var(--wrong-text);
+            border: 1px solid var(--wrong-border);
+        }
+
+        .warn-feedback {
+            background-color: var(--warn-bg);
+            color: var(--warn-text);
+            border: 1px solid var(--warn-border);
+        }
+
+        .btn-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(230, 92, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(230, 92, 0, 0.6);
+        }
+
+        #result-card {
+            display: none;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            animation: fadeIn 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Metals and Non-Metals</h1>
+    <div class="subtitle">Class 10 CBSE Chemistry — Chapter 3 Practice Drill</div>
+    
+    <div class="instructions">
+        🎯 <strong>Self-Assessment Mode:</strong> Go through the 25 conceptual statements below. Review your basics on Metallurgy, Reactivity Series, and Ionic Bonding. Submit at any stage to cross-verify.
+    </div>
+
+    <form id="quizForm">
+        <div id="questionsContainer"></div>
+
+        <div class="btn-container">
+            <button type="button" class="submit-btn" onclick="checkQuiz()">Check My Answers</button>
+        </div>
+    </form>
+
+    <div id="result-card"></div>
+</div>
+
+<script>
+    const quizData = [
+        { q: "Mercury is the only metal that exists as a liquid at room temperature.", a: "true", e: "Mercury (Hg) is a metal with an exceptionally low melting point, keeping it in a liquid state at room temperature." },
+        { q: "Iodine is a non-metal, but it is lustrous.", a: "true", e: "While most non-metals are dull, Iodine is a notable exception because its crystals display a shining, metallic lustre." },
+        { q: "Sodium and potassium are so soft that they can be easily cut with a knife.", a: "true", e: "Alkali metals like Sodium (Na) and Potassium (K) have low densities and weak metallic bonding, making them soft enough to cut easily." },
+        { q: "All metal oxides dissolve in water to form alkalis.", a: "false", e: "Most metal oxides are insoluble in water. Only a few, like Sodium Oxide (Na₂O) and Potassium Oxide (K₂O), dissolve to form soluble alkalis." },
+        { q: "Aluminium oxide is an amphoteric oxide.", a: "true", e: "Aluminium oxide (Al₂O₃) reacts with both acids and bases to produce salt and water, showing both acidic and basic behaviors." },
+        { q: "Copper reacts vigorously with dilute hydrochloric acid to evolve hydrogen gas.", a: "false", e: "Copper lies below hydrogen in the reactivity series. Therefore, it cannot displace hydrogen from dilute acids." },
+        { q: "Aqua regia is a freshly prepared mixture of concentrated HNO₃ and concentrated HCl in a 3:1 ratio.", a: "false", e: "Aqua regia contains concentrated HCl and concentrated HNO₃ in a 3:1 ratio (3 parts HCl to 1 part HNO₃)." },
+        { q: "Silver and gold do not react with oxygen even at extremely high temperatures.", a: "true", e: "Silver and gold are noble metals located at the bottom of the reactivity series; they are highly unreactive and do not oxidize in air." },
+        { q: "Ionic compounds have low melting and boiling points.", a: "false", e: "Ionic compounds have high melting and boiling points due to the strong electrostatic forces of attraction holding the oppositely charged ions together." },
+        { q: "Ionic compounds conduct electricity in their solid state.", a: "false", e: "In the solid state, ions are locked in a rigid crystal lattice and cannot move. They conduct electricity only when molten or dissolved in water." },
+        { q: "Sulfide ores are generally converted into oxides by the process of calcination.", a: "false", e: "Sulfide ores are converted to oxides by Roasting (heating strongly in excess air). Calcination is used for carbonate ores (heating in limited air)." },
+        { q: "The reduction of metal oxides using aluminium powder as a reducing agent is called a thermite reaction.", a: "true", e: "Thermite reactions are highly exothermic displacement reactions using aluminium. The heat generated melts the metal produced (e.g., joining railway tracks)." },
+        { q: "During the electrolytic refining of copper, pure copper is deposited at the anode.", a: "false", e: "Pure copper deposits at the Cathode (negative electrode), while the impure copper block acts as the Anode (positive electrode)." },
+        { q: "Galvanization is a method of protecting iron from rusting by coating it with a thin layer of zinc.", a: "true", e: "Zinc acts as a sacrificial layer because it is more reactive than iron and prevents the iron underneath from corroding." },
+        { q: "Amalgam is an alloy in which one of the constituent metals is always mercury.", a: "true", e: "By definition, an alloy containing mercury as a principal metal component is known as an amalgam (e.g., sodium amalgam)." },
+        { q: "Solder is an alloy of lead and tin with a very high melting point.", a: "false", e: "Solder (Pb + Sn) has a distinctively *low* melting point, which makes it ideal for welding electrical wires together." },
+        { q: "Gold ornaments are usually made of pure 24-carat gold.", a: "false", e: "Pure gold (24 carat) is too soft to hold a shape. Jewelry is typically made of 22-carat gold alloyed with silver or copper to add strength." },
+        { q: "Non-metal oxides are generally acidic or neutral in nature.", a: "true", e: "Non-metal oxides like SO₂ and CO₂ form acids when dissolved in water, while oxides like CO and N₂O are completely neutral." },
+        { q: "Magnesium reacts with cold water to form magnesium hydroxide and hydrogen gas.", a: "false", e: "Magnesium does not react with cold water; it reacts only with hot water or steam." },
+        { q: "When a metal reacts with dilute nitric acid, hydrogen gas is rarely evolved because HNO₃ is a strong oxidizing agent.", a: "true", e: "HNO₃ oxidizes the evolved H₂ gas into water (H₂O) and reduces itself to nitrogen oxides. Only Manganese and Magnesium react with very dilute HNO₃ to give H₂." },
+        { q: "Anodizing is a process of forming a thick oxide layer on copper.", a: "false", e: "Anodizing is specifically used to develop a clean protective layer of oxide on Aluminium to prevent further corrosion." },
+        { q: "The extraction of metals from highly reactive group elements (like Na, Ca, Mg) is done by chemical reduction with carbon.", a: "false", e: "These metals have a stronger affinity for oxygen than carbon does. They must be extracted via electrolytic reduction of their molten chlorides." },
+        { q: "Iron rusts easily, but when mixed with carbon, nickel, and chromium, it forms stainless steel which does not rust.", a: "true", e: "Alloying modifies properties; stainless steel changes the crystal structure of iron, eliminating its tendency to rust." },
+        { q: "Carbon can exist in different physical forms called allotropes, and diamond is a non-metal that can conduct electricity.", a: "false", e: "While diamond is an allotrope of carbon, it does not conduct electricity because it has no free electrons. Graphite is the allotrope that conducts electricity." },
+        { q: "Highly reactive metals can displace less reactive metals from their compounds in solution.", a: "true", e: "This forms the basis of displacement reactions: a metal higher up in the reactivity series always displaces a lower one from its salt solution." }
+    ];
+
+    function loadQuestions() {
+        const container = document.getElementById('questionsContainer');
+        quizData.forEach((item, index) => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            card.innerHTML = `
+                <div class="question-text">Q${index + 1}. ${item.q}</div>
+                <div class="options">
+                    <label class="option-label">
+                        <input type="radio" name="q${index}" value="true"> True
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q${index}" value="false"> False
+                    </label>
+                </div>
+                <div class="feedback" id="feedback-${index}"></div>
+            `;
+            container.appendChild(card);
+        });
+    }
+
+    function checkQuiz() {
+        let correctCount = 0;
+        let attemptedCount = 0;
+
+        quizData.forEach((item, index) => {
+            const selectedRadio = document.querySelector(`input[name="q${index}"]:checked`);
+            const feedbackDiv = document.getElementById(`feedback-${index}`);
+            
+            feedbackDiv.style.display = 'block';
+            
+            if (!selectedRadio) {
+                feedbackDiv.className = 'feedback warn-feedback';
+                feedbackDiv.innerHTML = `⚠️ <b>Not Attempted.</b> The correct answer is <b>${item.a.toUpperCase()}</b>.<br>${item.e}`;
+            } else {
+                attemptedCount++;
+                const selectedValue = selectedRadio.value;
+                
+                if (selectedValue === item.a) {
+                    correctCount++;
+                    feedbackDiv.className = 'feedback correct-feedback';
+                    feedbackDiv.innerHTML = `🎉 <strong>Correct!</strong> ${item.e}`;
+                } else {
+                    feedbackDiv.className = 'feedback wrong-feedback';
+                    feedbackDiv.innerHTML = `❌ <strong>Incorrect.</strong> The correct answer is <b>${item.a.toUpperCase()}</b>.<br>${item.e}`;
+                }
+            }
+        });
+
+        const resultCard = document.getElementById('result-card');
+        resultCard.style.display = 'block';
+        
+        let percentage = attemptedCount > 0 ? Math.round((correctCount / quizData.length) * 100) : 0;
+        
+        resultCard.innerHTML = `
+            Score: ${correctCount} / ${quizData.length} Correct (${percentage}%) <br>
+            <span style="font-size: 1rem; font-weight: normal; opacity: 0.9;">
+                You attempted ${attemptedCount} out of ${quizData.length} questions.
+            </span>
+        `;
+        
+        if (correctCount >= 20) {
+            resultCard.style.background = 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)';
+            resultCard.style.color = '#fff';
+        } else if (correctCount >= 12) {
+            resultCard.style.background = 'linear-gradient(135deg, #f12711 0%, #f5af19 100%)';
+            resultCard.style.color = '#fff';
+        } else {
+            resultCard.style.background = 'linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%)';
+            resultCard.style.color = '#fff';
+        }
+
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
+
+    window.onload = loadQuestions;
+</script>
+
+</body>
+</html>

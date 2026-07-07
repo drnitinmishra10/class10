@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 10 Chemistry - Chapter 2 Quiz</title>
+    <style>
+        :root {
+            --primary-color: #00c6ff;
+            --secondary-color: #0072ff;
+            --correct-bg: #e8f5e9;
+            --correct-text: #1b5e20;
+            --correct-border: #a5d6a7;
+            --wrong-bg: #ffebee;
+            --wrong-text: #b71c1c;
+            --wrong-border: #ef9a9a;
+            --warn-bg: #fffde7;
+            --warn-text: #f57f17;
+            --warn-border: #fff59d;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 30px 15px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        h1 {
+            text-align: center;
+            background: linear-gradient(to right, var(--secondary-color), #3a7bd5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 2.5rem;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .instructions {
+            background: linear-gradient(to right, #eef2f3, #e4e8f0);
+            border-left: 5px solid var(--secondary-color);
+            padding: 15px;
+            margin-bottom: 35px;
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+
+        .question-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .question-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+        }
+
+        .question-text {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #1a202c;
+        }
+
+        .options {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 5px;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            background: #f8fafc;
+            padding: 10px 20px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.2s;
+            user-select: none;
+            min-width: 100px;
+            justify-content: center;
+        }
+
+        .option-label:hover {
+            background: #f1f5f9;
+            border-color: #cbd5e1;
+        }
+
+        .option-label input {
+            margin-right: 10px;
+            transform: scale(1.2);
+            accent-color: var(--secondary-color);
+        }
+
+        .feedback {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+            font-size: 0.95rem;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .correct-feedback {
+            background-color: var(--correct-bg);
+            color: var(--correct-text);
+            border: 1px solid var(--correct-border);
+        }
+
+        .wrong-feedback {
+            background-color: var(--wrong-bg);
+            color: var(--wrong-text);
+            border: 1px solid var(--wrong-border);
+        }
+
+        .warn-feedback {
+            background-color: var(--warn-bg);
+            color: var(--warn-text);
+            border: 1px solid var(--warn-border);
+        }
+
+        .btn-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 114, 255, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 114, 255, 0.6);
+        }
+
+        #result-card {
+            display: none;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            animation: fadeIn 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Acids, Bases and Salts</h1>
+    <div class="subtitle">Class 10 CBSE Chemistry — Chapter 2 Practice Drill</div>
+    
+    <div class="instructions">
+        🎯 <strong>Self-Assessment Mode:</strong> Test your knowledge on indicators, pH scale, chemical properties, and salts. You can click 'Check My Answers' at any point, even if you skip a few statements!
+    </div>
+
+    <form id="quizForm">
+        <div id="questionsContainer"></div>
+
+        <div class="btn-container">
+            <button type="button" class="submit-btn" onclick="checkQuiz()">Check My Answers</button>
+        </div>
+    </form>
+
+    <div id="result-card"></div>
+</div>
+
+<script>
+    const quizData = [
+        { q: "Acids turn red litmus paper blue.", a: "false", e: "Acids turn blue litmus paper red. Bases are the ones that turn red litmus paper blue." },
+        { q: "Dry HCl gas does not change the color of dry blue litmus paper.", a: "true", e: "Dry HCl gas does not release H⁺ ions in the absence of water. Ions are necessary to show acidic properties." },
+        { q: "The chemical formula for baking soda is Na₂CO₃·10H₂O.", a: "false", e: "Baking soda is Sodium Hydrogen Carbonate (NaHCO₃). Na₂CO₃·10H₂O is the formula for washing soda." },
+        { q: "When an acid reacts with a metal, hydrogen gas is generally evolved.", a: "true", e: "Acid + Metal → Salt + Hydrogen gas. For example, Zn + H₂SO₄ → ZnSO₄ + H₂." },
+        { q: "A solution with a pH value of 2 is less acidic than a solution with a pH value of 5.", a: "false", e: "Lower pH values indicate a higher concentration of hydronium ions, making a pH of 2 significantly stronger than a pH of 5." },
+        { q: "Distilled water conducts electricity efficiently.", a: "false", e: "Distilled water is a covalent compound and does not contain free ions to conduct electricity, unlike tap water or rainwater." },
+        { q: "Phenolphthalein indicator turns pink in basic solutions.", a: "true", e: "Phenolphthalein remains colorless in acidic solutions but turns a distinct deep pink in the presence of a base." },
+        { q: "The process of dissolving an acid or a base in water is highly endothermic.", a: "false", e: "It is highly exothermic, releasing a massive amount of heat energy. This is why acid should always be added slowly to water, not vice versa." },
+        { q: "Our stomach produces hydrochloric acid which helps in the digestion of food.", a: "true", e: "The stomach releases dilute HCl to create an acidic medium required for the digestive enzyme pepsin to function." },
+        { q: "Tooth decay starts when the pH of the mouth falls below 5.5.", a: "true", e: "Below a pH of 5.5, the mouth becomes acidic enough to dissolve calcium phosphate, which makes up our tooth enamel." },
+        { q: "Ant stings contain methanoic acid, which causes severe pain and irritation.", a: "true", e: "Methanoic acid (formic acid) is injected during an ant bite. Rubbing a mild base like baking soda provides relief." },
+        { q: "Plaster of Paris is obtained by heating gypsum at 373 K.", a: "true", e: "Heating Gypsum (CaSO₄·2H₂O) at exactly 373 K causes it to lose a fixed amount of water to become Plaster of Paris (CaSO₄·½H₂O)." },
+        { q: "Sodium hydroxide turns methyl orange indicator yellow.", a: "true", e: "Sodium hydroxide (NaOH) is a strong base. Methyl orange turns red in acids and yellow in bases." },
+        { q: "Alkalis are bases that are completely insoluble in water.", a: "false", e: "Alkalis are specifically those bases that are *soluble* in water, such as NaOH and KOH." },
+        { q: "An aqueous solution of Copper Sulfate is basic in nature.", a: "false", e: "Copper sulfate is a salt of a strong acid (H₂SO₄) and a weak base (Cu(OH)₂), making its aqueous solution acidic." },
+        { q: "Bleaching powder is produced by the action of chlorine on dry slaked lime.", a: "true", e: "Ca(OH)₂ + Cl₂ → CaOCl₂ + H₂O. CaOCl₂ is bleaching powder." },
+        { q: "Mixing an acid or base with water results in an increase in the concentration of ions (H₃O⁺/OH⁻) per unit volume.", a: "false", e: "This process is called dilution, and it *decreases* the concentration of ions per unit volume." },
+        { q: "Baking powder is a mixture of baking soda and a mild edible acid like tartaric acid.", a: "true", e: "Tartaric acid reactively neutralizes the bitter taste of sodium carbonate formed during heating." },
+        { q: "The crystal structure of Copper Sulfate contains 5 molecules of water of crystallization.", a: "true", e: "The formula is CuSO₄·5H₂O, which gives the crystals their characteristic bright blue color." },
+        { q: "Universal indicator shows the same color across all pH ranges.", a: "false", e: "Universal indicator is a mixture of several indicators that exhibits a gradual spectrum of different colors at different pH values." },
+        { q: "When carbon dioxide gas is passed through lime water for a long duration, the milkiness disappears.", a: "true", e: "Excess CO₂ converts the insoluble calcium carbonate into soluble calcium hydrogen carbonate, making the solution clear again." },
+        { q: "Nettle plant leaves cause a stinging sensation because they inject citric acid into the skin.", a: "false", e: "Nettle leaves inject methanoic acid, just like ant stings." },
+        { q: "The pH of a neutral solution is exactly 7.", a: "true", e: "A pH of 7 represents a perfect balance where hydronium and hydroxyl ion concentrations are completely equal." },
+        { q: "Sodium chloride is an acidic salt.", a: "false", e: "NaCl is a neutral salt formed by the neutralization reaction of a strong acid (HCl) and a strong base (NaOH)." },
+        { q: "Plaster of Paris should be stored in moisture-proof containers.", a: "true", e: "If exposed to moisture, POP absorbs water and sets into a rock-hard solid mass of Gypsum, rendering it useless." }
+    ];
+
+    function loadQuestions() {
+        const container = document.getElementById('questionsContainer');
+        quizData.forEach((item, index) => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            card.innerHTML = `
+                <div class="question-text">Q${index + 1}. ${item.q}</div>
+                <div class="options">
+                    <label class="option-label">
+                        <input type="radio" name="q${index}" value="true"> True
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q${index}" value="false"> False
+                    </label>
+                </div>
+                <div class="feedback" id="feedback-${index}"></div>
+            `;
+            container.appendChild(card);
+        });
+    }
+
+    function checkQuiz() {
+        let correctCount = 0;
+        let attemptedCount = 0;
+
+        quizData.forEach((item, index) => {
+            const selectedRadio = document.querySelector(`input[name="q${index}"]:checked`);
+            const feedbackDiv = document.getElementById(`feedback-${index}`);
+            
+            feedbackDiv.style.display = 'block';
+            
+            if (!selectedRadio) {
+                feedbackDiv.className = 'feedback warn-feedback';
+                feedbackDiv.innerHTML = `⚠️ <b>Not Attempted.</b> The correct answer is <b>${item.a.toUpperCase()}</b>.<br>${item.e}`;
+            } else {
+                attemptedCount++;
+                const selectedValue = selectedRadio.value;
+                
+                if (selectedValue === item.a) {
+                    correctCount++;
+                    feedbackDiv.className = 'feedback correct-feedback';
+                    feedbackDiv.innerHTML = `🎉 <strong>Correct!</strong> ${item.e}`;
+                } else {
+                    feedbackDiv.className = 'feedback wrong-feedback';
+                    feedbackDiv.innerHTML = `❌ <strong>Incorrect.</strong> The correct answer is <b>${item.a.toUpperCase()}</b>.<br>${item.e}`;
+                }
+            }
+        });
+
+        const resultCard = document.getElementById('result-card');
+        resultCard.style.display = 'block';
+        
+        let percentage = attemptedCount > 0 ? Math.round((correctCount / quizData.length) * 100) : 0;
+        
+        resultCard.innerHTML = `
+            Score: ${correctCount} / ${quizData.length} Correct (${percentage}%) <br>
+            <span style="font-size: 1rem; font-weight: normal; opacity: 0.9;">
+                You attempted ${attemptedCount} out of ${quizData.length} questions.
+            </span>
+        `;
+        
+        if (correctCount >= 20) {
+            resultCard.style.background = 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)';
+            resultCard.style.color = '#fff';
+        } else if (correctCount >= 12) {
+            resultCard.style.background = 'linear-gradient(135deg, #f12711 0%, #f5af19 100%)';
+            resultCard.style.color = '#fff';
+        } else {
+            resultCard.style.background = 'linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%)';
+            resultCard.style.color = '#fff';
+        }
+
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
+
+    window.onload = loadQuestions;
+</script>
+
+</body>
+</html>
