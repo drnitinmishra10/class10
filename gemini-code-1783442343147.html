@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 10 Chemistry - Chapter 1 Matching Quiz</title>
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            --selected-color: #3498db;
+            --correct-color: #2ecc71;
+            --wrong-color: #e74c3c;
+            --card-bg: #ffffff;
+            --body-bg: #f4f7f6;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--body-bg);
+            margin: 0;
+            padding: 30px 15px;
+            color: #333;
+        }
+
+        .quiz-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        h1 {
+            text-align: center;
+            background: linear-gradient(to right, #11998e, #2b5876);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 2.3rem;
+            margin: 0 0 10px 0;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .instructions {
+            background-color: #eef2f3;
+            border-left: 5px solid #11998e;
+            padding: 15px;
+            margin-bottom: 35px;
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+
+        .columns-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .columns-wrapper {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        .column-header {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 8px;
+            text-align: center;
+        }
+
+        .item-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .quiz-item {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            user-select: none;
+            position: relative;
+        }
+
+        .quiz-item:hover {
+            border-color: #cbd5e1;
+            background: #f1f5f9;
+            transform: translateY(-1px);
+        }
+
+        .quiz-item.selected {
+            border-color: var(--selected-color);
+            background-color: #ebf8ff;
+            color: #2b6cb0;
+        }
+
+        .quiz-item.matched {
+            background-color: #e8f5e9;
+            border-color: var(--correct-color);
+            color: #1b5e20;
+            cursor: default;
+            transform: none;
+        }
+
+        .match-badge {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--correct-color);
+            color: white;
+            padding: 2px 8px;
+            font-size: 0.8rem;
+            border-radius: 12px;
+            font-weight: bold;
+        }
+
+        /* Explanations section */
+        .explanations-container {
+            margin-top: 40px;
+            border-top: 2px dashed #e2e8f0;
+            padding-top: 30px;
+            display: none;
+        }
+
+        .explanations-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .explanation-card {
+            background: #fcfcfc;
+            border-left: 4px solid var(--correct-color);
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.01);
+        }
+
+        .btn-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .reset-btn {
+            background: linear-gradient(135deg, #606c88 0%, #3f4c6b 100%);
+            color: white;
+            border: none;
+            padding: 12px 35px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            transition: all 0.2s;
+        }
+
+        .reset-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <h1>Chemical Reactions & Equations</h1>
+    <div class="subtitle">Interactive Match the Following Board Drill</div>
+
+    <div class="instructions">
+        💡 <strong>How to Play:</strong> Click a description in the <b>Reactant / Process</b> column on the left, then click its corresponding entry in the <b>Observation / Chemical Identity</b> column on the right. Match all 10 accurately to unlock the master solution index!
+    </div>
+
+    <div class="columns-wrapper">
+        <div>
+            <div class="column-header">Reactant / Process</div>
+            <div id="leftColumn" class="item-list"></div>
+        </div>
+        <div>
+            <div class="column-header">Observation / Chemical Identity</div>
+            <div id="rightColumn" class="item-list"></div>
+        </div>
+    </div>
+
+    <div class="btn-container">
+        <button class="reset-btn" onclick="resetQuiz()">Reset Matrix</button>
+    </div>
+
+    <div id="explanationsSection" class="explanations-container">
+        <div class="explanations-title">💡 Deep-Dive Review Matrix:</div>
+        <div id="explanationsList"></div>
+    </div>
+</div>
+
+<script>
+    // Master source dataset containing key-locked matches
+    const matchData = [
+        { id: 1, left: "Burning of Magnesium Ribbon", right: "Dazzling white flame leaving behind a white powder (MgO).", exp: "Magnesium reacts with atmospheric oxygen to undergo a combination reaction forming basic Magnesium Oxide powder." },
+        { id: 2, left: "Heating Lead Nitrate Crystals", right: "Crackling sounds along with thick brown fumes (NO₂).", exp: "Thermal decomposition of lead nitrate yields solid lead oxide, oxygen, and toxic brown nitrogen dioxide gas fumes." },
+        { id: 3, left: "Electrolysis of Acidified Water", right: "Hydrogen and Oxygen gases collected in a 2:1 volume ratio.", exp: "Since a single water molecule contains 2 parts Hydrogen to 1 part Oxygen, electrolytic decomposition yields double the volume of gas at the cathode." },
+        { id: 4, left: "Iron Nails in Copper Sulfate Solution", right: "Deep blue color solution gradually fades to a light green shade.", exp: "Highly reactive iron displaces copper from its salt system to form light-green ferrous sulfate (FeSO₄) solution." },
+        { id: 5, left: "Exposure of Silver Chloride to Sunlight", right: "White crystalline powder turns grey with chlorine evolution.", exp: "This photolytic decomposition splits white AgCl into grey metallic elemental silver clusters and chlorine gas gas particles." },
+        { id: 6, left: "Mixing Quicklime (CaO) with Water", right: "Vigorous hissing noise coupled with highly intense heat generation.", exp: "Calcium oxide reacts highly exothermically with water to form calcium hydroxide (slaked lime), making it a premium example of combo reactions." },
+        { id: 7, left: "Respiration in Biological Cells", right: "Exothermic breakdown of glucose using inhaled oxygen streams.", exp: "Living systems break down ingested glucose into carbon dioxide and water, liberating energy (ATP) for body maintenance." },
+        { id: 8, left: "Rusting of Raw Structural Iron Articles", right: "Formation of flaky reddish-brown hydrated ferric oxide coating.", exp: "In the simultaneous presence of wet air, iron undergoes a complex slow oxidation cycle producing Fe₂O₃·xH₂O." },
+        { id: 9, left: "Hydrogen passed over Heated Copper Oxide", right: "Black coating shifts color directly into a reddish-brown metallic layout.", exp: "CuO + H₂ → Cu + H₂O. Copper oxide is reduced to metallic brown copper while hydrogen oxidizes into water." },
+        { id: 10, left: "Flushing Chips Packaging with Nitrogen", right: "Preventative packaging measure blocking the oxidation of fats.", exp: "Nitrogen acts as an unreactive structural blanket displacing active oxygen, halting rancidity pathways." }
+    ];
+
+    let selectedLeftId = null;
+    let selectedRightId = null;
+    let matchesFound = 0;
+
+    // Shuffle helper to break standard linear matching
+    const shuffleArray = (array) => [...array].sort(() => Math.random() - 0.5);
+
+    function initQuiz() {
+        const leftCol = document.getElementById('leftColumn');
+        const rightCol = document.getElementById('rightColumn');
+        
+        leftCol.innerHTML = '';
+        rightCol.innerHTML = '';
+        document.getElementById('explanationsSection').style.display = 'none';
+        matchesFound = 0;
+
+        const shuffledLeft = shuffleArray(matchData);
+        const shuffledRight = shuffleArray(matchData);
+
+        // Render Left side items
+        shuffledLeft.forEach(item => {
+            const div = document.createElement('div');
+            div.className = 'quiz-item';
+            div.id = `left-${item.id}`;
+            div.innerText = item.left;
+            div.onclick = () => handleSelection('left', item.id);
+            leftCol.appendChild(div);
+        });
+
+        // Render Right side items
+        shuffledRight.forEach(item => {
+            const div = document.createElement('div');
+            div.className = 'quiz-item';
+            div.id = `right-${item.id}`;
+            div.innerText = item.right;
+            div.onclick = () => handleSelection('right', item.id);
+            rightCol.appendChild(div);
+        });
+    }
+
+    function handleSelection(side, id) {
+        const itemEl = document.getElementById(`${side}-${id}`);
+        
+        // Block interaction if already matched
+        if (itemEl.classList.contains('matched')) return;
+
+        if (side === 'left') {
+            // Reset previous left select
+            if (selectedLeftId) {
+                document.getElementById(`left-${selectedLeftId}`).classList.remove('selected');
+            }
+            selectedLeftId = id;
+            itemEl.classList.add('selected');
+        } else {
+            // Reset previous right select
+            if (selectedRightId) {
+                document.getElementById(`right-${selectedRightId}`).classList.remove('selected');
+            }
+            selectedRightId = id;
+            itemEl.classList.add('selected');
+        }
+
+        // Evaluate if pair is active
+        if (selectedLeftId !== null && selectedRightId !== null) {
+            checkMatch();
+        }
+    }
+
+    function checkMatch() {
+        const leftEl = document.getElementById(`left-${selectedLeftId}`);
+        const rightEl = document.getElementById(`right-${selectedRightId}`);
+
+        if (selectedLeftId === selectedRightId) {
+            // Correct Pair Match Detected
+            leftEl.className = 'quiz-item matched';
+            rightEl.className = 'quiz-item matched';
+            
+            matchesFound++;
+            
+            leftEl.innerHTML += ` <span class="match-badge">✓ Link ${matchesFound}</span>`;
+            rightEl.innerHTML += ` <span class="match-badge">✓ Link ${matchesFound}</span>`;
+
+            selectedLeftId = null;
+            selectedRightId = null;
+
+            if (matchesFound === matchData.length) {
+                revealExplanations();
+            }
+        } else {
+            // Mismatch detected - clear selection indicators seamlessly
+            setTimeout(() => {
+                leftEl.classList.remove('selected');
+                rightEl.classList.remove('selected');
+            }, 300);
+            selectedLeftId = null;
+            selectedRightId = null;
+        }
+    }
+
+    function revealExplanations() {
+        const section = document.getElementById('explanationsSection');
+        const listContainer = document.getElementById('explanationsList');
+        listContainer.innerHTML = '';
+        
+        matchData.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'explanation-card';
+            card.innerHTML = `<b>${item.left}</b> matches with <u>${item.right}</u> <br> <span style="color:#555; font-size:0.9rem;">🔬 ${item.exp}</span>`;
+            listContainer.appendChild(card);
+        });
+
+        section.style.display = 'block';
+        window.scrollTo({ top: section.offsetTop, behavior: 'smooth' });
+    }
+
+    function resetQuiz() {
+        selectedLeftId = null;
+        selectedRightId = null;
+        initQuiz();
+    }
+
+    // Fire application render on boot
+    window.onload = initQuiz;
+</script>
+
+</body>
+</html>

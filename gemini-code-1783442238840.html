@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 10 Chemistry - Chapter 1 (Quiz 3)</title>
+    <style>
+        :root {
+            --primary-color: #ff416c;
+            --secondary-color: #ff4b2b;
+            --correct-bg: #e8f5e9;
+            --correct-text: #1b5e20;
+            --correct-border: #a5d6a7;
+            --wrong-bg: #ffebee;
+            --wrong-text: #b71c1c;
+            --wrong-border: #ef9a9a;
+            --warn-bg: #fffde7;
+            --warn-text: #f57f17;
+            --warn-border: #fff59d;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 30px 15px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        h1 {
+            text-align: center;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 2.5rem;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .instructions {
+            background: linear-gradient(to right, #eef2f3, #e4e8f0);
+            border-left: 5px solid var(--primary-color);
+            padding: 15px;
+            margin-bottom: 35px;
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+
+        .question-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .question-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+        }
+
+        .question-text {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #1a202c;
+        }
+
+        .options-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 5px;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            background: #f8fafc;
+            padding: 12px 20px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.2s;
+            user-select: none;
+        }
+
+        .option-label:hover {
+            background: #f1f5f9;
+            border-color: #cbd5e1;
+        }
+
+        .option-label input {
+            margin-right: 15px;
+            transform: scale(1.2);
+            accent-color: var(--primary-color);
+        }
+
+        .feedback {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+            font-size: 0.95rem;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .correct-feedback {
+            background-color: var(--correct-bg);
+            color: var(--correct-text);
+            border: 1px solid var(--correct-border);
+        }
+
+        .wrong-feedback {
+            background-color: var(--wrong-bg);
+            color: var(--wrong-text);
+            border: 1px solid var(--wrong-border);
+        }
+
+        .warn-feedback {
+            background-color: var(--warn-bg);
+            color: var(--warn-text);
+            border: 1px solid var(--warn-border);
+        }
+
+        .btn-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 75, 43, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 75, 43, 0.6);
+        }
+
+        #result-card {
+            display: none;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            animation: fadeIn 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Chemical Reactions & Equations</h1>
+    <div class="subtitle">Class 10 CBSE Chemistry — Multiple Choice Practice Drill 3</div>
+    
+    <div class="instructions">
+        🎯 <strong>Self-Assessment Mode:</strong> Go through these 10 core boards-level multiple-choice questions. You can hit the submit button at any time to instantly see the analytical solutions and scoring profiles!
+    </div>
+
+    <form id="quizForm">
+        <div id="questionsContainer"></div>
+
+        <div class="btn-container">
+            <button type="button" class="submit-btn" onclick="checkQuiz()">Evaluate My Answers</button>
+        </div>
+    </form>
+
+    <div id="result-card"></div>
+</div>
+
+<script>
+    const quizData = [
+        {
+            q: "When aqueous solutions of barium chloride and sodium sulfate react, a white precipitate is formed. What is the chemical formula of this precipitate?",
+            opts: ["Barium sulfate (BaSO₄)", "Sodium chloride (NaCl)", "Barium sulfite (BaSO₃)", "Sodium sulfate (Na₂SO₄)"],
+            a: 0,
+            e: "Barium sulfate is an insoluble white solid that precipitates out immediately during this double displacement reaction, while NaCl remains completely dissolved."
+        },
+        {
+            q: "In the balanced chemical equation xH₂ + yO₂ → zH₂O, what are the values of the stoichiometric coefficients x, y, and z?",
+            opts: ["x = 1, y = 1, z = 2", "x = 2, y = 1, z = 2", "x = 2, y = 2, z = 2", "x = 1, y = 2, z = 1"],
+            a: 1,
+            e: "The balanced equation is 2H₂ + O₂ → 2H₂O. This configuration gives exactly 4 hydrogen atoms and 2 oxygen atoms symmetrically on both sides."
+        },
+        {
+            q: "Which of the following processes represents a purely endothermic reaction?",
+            opts: ["Decomposition of calcium carbonate to form quicklime", "Burning of natural gas", "Respiration in living cells", "Reaction of quicklime with water"],
+            a: 0,
+            e: "Thermal decomposition of limestone (CaCO₃) requires a continuous external supply of heat energy to break structural bonds, whereas the others are explicitly exothermic."
+        },
+        {
+            q: "When a student dips an iron nail into a blue copper sulfate solution, the solution gradually changes color. What is the final color of the solution?",
+            opts: ["Light green", "Colorless", "Deep blue", "Dark brown"],
+            a: 0,
+            e: "Iron displaces copper to form ferrous sulfate (FeSO₄), which naturally possesses a light green color in aqueous solutions."
+        },
+        {
+            q: "Consider the redox reaction: MnO₂ + 4HCl → MnCl₂ + 2H₂O + Cl₂. Which substance acts as the reducing agent?",
+            opts: ["MnO₂", "HCl", "MnCl₂", "Cl₂"],
+            a: 1,
+            e: "Hydrochloric acid (HCl) loses hydrogen atoms to become chlorine gas, meaning it is oxidized and acts as the reducing agent."
+        },
+        {
+            q: "What happens chemically when water undergoes electrolytic decomposition?",
+            opts: ["Hydrogen gas is liberated at the anode", "Oxygen gas is liberated at the cathode", "Hydrogen gas is liberated at the cathode and oxygen at the anode", "Water turns into steam without chemical change"],
+            a: 2,
+            e: "Positively charged hydrogen ions migrate to the negative cathode, while negatively charged oxygen species migrate to the positive anode during electrolysis."
+        },
+        {
+            q: "Which of the following is a key preventive measure used to protect oily and fatty foods from turning rancid?",
+            opts: ["Storing them in open containers exposed to light", "Flushing the food packaging with inert nitrogen gas", "Adding a strong oxidizing agent to the food", "Keeping the food in a highly humid environment"],
+            a: 1,
+            e: "Nitrogen acts as an inert blanket that completely cuts off oxygen access, effectively preventing the oxidation of structural fats and oils."
+        },
+        {
+            q: "When solid lead nitrate is heated strongly in a dry test tube, what visual observation confirms a chemical change?",
+            opts: ["Evolution of green gas turnings", "Evolution of brown fumes of nitrogen dioxide", "Formation of a white precipitate", "The test tube melts instantly"],
+            a: 1,
+            e: "Thermal decomposition of lead nitrate yields lead oxide residue, oxygen gas, and clouds of deep brown nitrogen dioxide (NO₂) gas."
+        },
+        {
+            q: "What type of reaction is represented by the equation: NH₃ + HCl → NH₄Cl?",
+            opts: ["Combination reaction", "Decomposition reaction", "Displacement reaction", "Double displacement reaction"],
+            a: 0,
+            e: "Two separate gaseous chemical reactants merge perfectly together to yield a single solid compound product, which directly characterizes a combination reaction."
+        },
+        {
+            q: "Which of the following statements about the corrosion of metals is scientifically accurate?",
+            opts: ["Rusting of iron requires only oxygen and can occur in completely dry air", "Corrosion of copper leads to a green coating of basic copper carbonate", "Silver articles turn yellow when exposed to air for a long time", "Corrosion is a physical change that can be completely reversed by heating"],
+            a: 1,
+            e: "Copper reacts slowly with moist ambient carbon dioxide to form basic copper carbonate, which shows as a distinct green patina over time."
+        }
+    ];
+
+    function loadQuestions() {
+        const container = document.getElementById('questionsContainer');
+        quizData.forEach((item, index) => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            
+            let optionsHTML = '';
+            item.opts.forEach((opt, optIdx) => {
+                optionsHTML += `
+                    <label class="option-label">
+                        <input type="radio" name="q${index}" value="${optIdx}">
+                        ${opt}
+                    </label>
+                `;
+            });
+
+            card.innerHTML = `
+                <div class="question-text">Q${index + 1}. ${item.q}</div>
+                <div class="options-grid">${optionsHTML}</div>
+                <div class="feedback" id="feedback-${index}"></div>
+            `;
+            container.appendChild(card);
+        });
+    }
+
+    function checkQuiz() {
+        let correctCount = 0;
+        let attemptedCount = 0;
+
+        quizData.forEach((item, index) => {
+            const selectedRadio = document.querySelector(`input[name="q${index}"]:checked`);
+            const feedbackDiv = document.getElementById(`feedback-${index}`);
+            
+            feedbackDiv.style.display = 'block';
+            
+            if (!selectedRadio) {
+                feedbackDiv.className = 'feedback warn-feedback';
+                feedbackDiv.innerHTML = `⚠️ <b>Not Attempted.</b> The correct option was: <b>${item.opts[item.a]}</b>.<br>${item.e}`;
+            } else {
+                attemptedCount++;
+                const selectedValue = parseInt(selectedRadio.value);
+                
+                if (selectedValue === item.a) {
+                    correctCount++;
+                    feedbackDiv.className = 'feedback correct-feedback';
+                    feedbackDiv.innerHTML = `🎉 <strong>Correct!</strong> ${item.e}`;
+                } else {
+                    feedbackDiv.className = 'feedback wrong-feedback';
+                    feedbackDiv.innerHTML = `❌ <strong>Incorrect.</strong> You chose ${item.opts[selectedValue]}. <br>The correct answer is <b>${item.opts[item.a]}</b>.<br>${item.e}`;
+                }
+            }
+        });
+
+        const resultCard = document.getElementById('result-card');
+        resultCard.style.display = 'block';
+        
+        let percentage = attemptedCount > 0 ? Math.round((correctCount / quizData.length) * 100) : 0;
+        
+        resultCard.innerHTML = `
+            Score: ${correctCount} / ${quizData.length} Correct (${percentage}%) <br>
+            <span style="font-size: 1rem; font-weight: normal; opacity: 0.9;">
+                You attempted ${attemptedCount} out of ${quizData.length} multiple-choice questions.
+            </span>
+        `;
+        
+        if (correctCount >= 8) {
+            resultCard.style.background = 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)';
+            resultCard.style.color = '#fff';
+        } else if (correctCount >= 5) {
+            resultCard.style.background = 'linear-gradient(135deg, #f12711 0%, #f5af19 100%)';
+            resultCard.style.color = '#fff';
+        } else {
+            resultCard.style.background = 'linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%)';
+            resultCard.style.color = '#fff';
+        }
+
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
+
+    window.onload = loadQuestions;
+</script>
+
+</body>
+</html>
